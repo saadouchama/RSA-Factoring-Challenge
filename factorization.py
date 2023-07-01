@@ -2,20 +2,13 @@
 import sys
 
 
-def primef(n):
-    if n <= 3:
-        return int(n)
-    if n % 2 == 0:
-        return 2
-    elif n % 3 == 0:
-        return 3
-    else:
-        for i in range(5, int(n**0.5) + 1, 6):
-            if n % i == 0:
-                return int(i)
-            if n % (i + 2) == 0:
-                return primef(n/(i+2))
-    return int(n)
+def is_prime(num):
+    if num < 2:
+        return False
+    for i in range(2, int(num**0.5) + 1):
+        if num % i == 0:
+            return False
+    return True
 
 
-print(primef(int(sys.argv[1])))
+print(is_prime(int(sys.argv[1])))
